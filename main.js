@@ -1,3 +1,70 @@
+// Ques 1 - Palindrome
+function isPalindromeString(stringToValidate) {
+  const reversedString = stringToValidate.split("").reverse().join("");
+  return stringToValidate.toLowerCase() === reversedString.toLowerCase();
+}
+
+function checkPalindromeString() {
+  console.log("Is Palindrome = " + isPalindromeString("Malayalam"));
+  console.log("Is Palindrome = " + isPalindromeString("test"));
+}
+
+// Ques 2 - Filter even numbers
+function filterEvenNumber() {
+  const numberArray = [12, 34, 57, 4, 6, 7, 89, 45, 56];
+  const evenNumberArray = numberArray.filter((nos) => nos % 2 === 0);
+  console.log("Even number array = " + evenNumberArray.toString());
+}
+
+// Ques 3 - Factorial
+function findFactorial() {
+  console.log("5 factorial = " + factorial(5));
+  console.log("10 factorial = " + factorial(10));
+}
+
+function factorial(num) {
+  return num > 1 ? num * factorial(num - 1) : num;
+}
+
+// Ques 4 - isPrime
+function validatePrimeNo() {
+  console.log("05 is prime = " + isPrime(5));
+  console.log("10 is prime = " + isPrime(10));
+  console.log("07 is prime = " + isPrime(7));
+  console.log("12 is prime = " + isPrime(12));
+  console.log("13 is prime = " + isPrime(13));
+}
+
+function isPrime(num) {
+  let isPrime = true;
+  for (let count = 2; count < num / 2; count++) {
+    if (num % count === 0 && isPrime) {
+      isPrime = false;
+    }
+  }
+  return isPrime;
+}
+
+// Ques 5 - Update first letter in each word to Caps
+function updateSentenceCase() {
+  console.log(convertToSentenceCase("Car is moving fAST"));
+  console.log(convertToSentenceCase("India won the 20 20 world cup"));
+}
+
+function convertToSentenceCase(inputString) {
+  const stringArray = inputString.split(" ");
+  const returnOutput = stringArray.reduce((pV, cV) => {
+    pV =
+      pV +
+      cV.charAt(0).toUpperCase() +
+      cV.substring(1, cV.length).toLowerCase() +
+      " ";
+    return pV;
+  }, "");
+  return returnOutput.trim();
+}
+
+// Ques 6 - Find vowels and consonants
 function filterChars(code) {
   return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
 }
